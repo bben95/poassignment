@@ -1,14 +1,23 @@
 import LandingPage from "./pages/LandingPage";
-import { DataContextProvider } from "./context/DataContext";
+
+import { Routes,Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 
 
 function App() {
   return (
     <div >
-      <DataContextProvider>
-      <LandingPage/>
-      </DataContextProvider>
+
+<Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/home" element={<Home/>}/>
+        
+      </Routes>
+      
+        
+      
+      
     </div>
   );
 }

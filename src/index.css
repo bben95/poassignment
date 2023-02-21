@@ -10,3 +10,31 @@ body {
   font-family: 'Lato','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+@layer utilities{
+  .top-curve{
+    content: '';
+    position: absolute;
+    right: 0;
+    top:-32px;
+    width:32px;
+    height: 32px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 16px 0 10px white;
+    pointer-events: none;
+
+  }
+  .bottom-curve{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom:-32px;
+    width:32px;
+    height: 32px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 25px -20px 0 10px white;
+    pointer-events: none;
+  }
+}
+

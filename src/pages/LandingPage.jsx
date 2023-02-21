@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useDataContext } from "../context/DataContext";
 
 const LandingPage = () => {
   const {data}= useDataContext();
-  console.log(data);
+
   return (
     <div className="w-full h-full">
       <div className="absolute w-full h-full top-0">
@@ -30,10 +31,12 @@ const LandingPage = () => {
         <div className="p-2 h-full  bg-white rounded-b-3xl ">
         <div className="h-full bg-white   px-8 overflow-x-scroll scrollbar scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-xl scrollbar-w-[6px] scrollbar-h-[10px]">
           {data?.map((item)=>(
-            <div key={item.id} className="border-b-2 border-neutral-200 flex p-2 cursor-pointer">
+            <Link key={item.id} to='/home' state={item}>
+            <div  className="border-b-2 border-neutral-200 flex p-2 cursor-pointer">
               <img src={item.profilepicture} className="w-8 h-8 rounded-full contrast-75" alt="" />
-              <p className="text-lg font-normal text-neutral-600 pl-4">{item.name}</p>
+              <p className="text-lg font-light text-neutral-600 pl-4">{item.name}</p>
             </div>
+            </Link>
           ))}
         </div>
         </div>
