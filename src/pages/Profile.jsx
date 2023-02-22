@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Logout from '../components/Logout';
 import { useDataContext } from '../context/DataContext'
 import MapImage from '../MapImage.png'
 
 const Profile = () => {
     const {individual}=useDataContext();
+    const [login,setLogin]=useState(false);
     console.log(individual);
   return (
-    <div className='h-screen w-[74%] my-6 mr-4'>
+    <div className='h-screen w-[74%] my-6 mr-4 relative'>
       <div className=' w-full flex justify-between py-2 border-b-[1px] border-neutral-300'>
      <p className='text-xl font-semibold text-neutral-600'>Profile</p>
-     <div className='flex items-center'>
+     <div className='flex items-center cursor-pointer' onClick={()=>{setLogin(!login)}}>
       <img src={individual.profilepicture} className='w-9 h-9 rounded-full' alt={individual.name} />
       <p className='text-xl font-normal text-neutral-600 pl-2'>{individual.name}</p>
      </div>
@@ -23,18 +25,18 @@ const Profile = () => {
         <p className='text-xl font-bold text-neutral-600 pt-1'>{individual.name}</p>
         <div className='flex flex-row  border-b-[1px] border-neutral-300 gap-3 py-3'>
           <div className='flex flex-col items-end gap-2'>
-            <p className='text-xl font-normal text-neutral-500'>Username</p>
-            <p className='text-xl font-normal text-neutral-500'>e-mail</p>
-            <p className='text-xl font-normal text-neutral-500'>Phone</p>
-            <p className='text-xl font-normal text-neutral-500'>Website</p>
+            <p className='text-xl font-normal text-neutral-400'>Username</p>
+            <p className='text-xl font-normal text-neutral-400'>e-mail</p>
+            <p className='text-xl font-normal text-neutral-400'>Phone</p>
+            <p className='text-xl font-normal text-neutral-400'>Website</p>
             
             
           </div>
           <div className='flex flex-col  gap-2'>
-          <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
+          <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
             
           </div>
           <div className='flex flex-col  gap-2'>
@@ -45,20 +47,20 @@ const Profile = () => {
           </div>
           
         </div>
-        <p className='text-xl font-normal text-neutral-500 py-2'>Company</p>
+        <p className='text-xl font-normal text-neutral-400 py-2'>Company</p>
         <div className='flex flex-row  gap-3'>
           
           <div className='flex flex-col items-end '>
-            <p className='text-xl font-normal text-neutral-500'>Name</p>
-            <p className='text-xl font-normal text-neutral-500'>catchphrase</p>
-            <p className='text-xl font-normal text-neutral-500'>bs</p>
+            <p className='text-xl font-normal text-neutral-400'>Name</p>
+            <p className='text-xl font-normal text-neutral-400'>catchphrase</p>
+            <p className='text-xl font-normal text-neutral-400'>bs</p>
            
            
           </div>
           <div className='flex flex-col'>
-          <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
+          <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
             
           </div>
           <div className='flex flex-col '>
@@ -75,22 +77,22 @@ const Profile = () => {
      </div>
     
      <div className='w-full pl-12'>
-        <p className='text-xl font-normal text-neutral-500 py-2'>Address:</p>
+        <p className='text-xl font-normal text-neutral-400 py-2'>Address:</p>
         <div className='w-full px-8 py-2'>
         <div className='flex flex-row gap-3'>
           <div className='flex flex-col items-end gap-2'>
-            <p className='text-xl font-normal text-neutral-500'>Street</p>
-            <p className='text-xl font-normal text-neutral-500'>Suite</p>
-            <p className='text-xl font-normal text-neutral-500'>City</p>
-            <p className='text-xl font-normal text-neutral-500'>Zipcode</p>
+            <p className='text-xl font-normal text-neutral-400'>Street</p>
+            <p className='text-xl font-normal text-neutral-400'>Suite</p>
+            <p className='text-xl font-normal text-neutral-400'>City</p>
+            <p className='text-xl font-normal text-neutral-400'>Zipcode</p>
             
             
           </div>
           <div className='flex flex-col  gap-2'>
-          <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
-            <p className='text-xl font-normal text-neutral-500'>:</p>
+          <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
+            <p className='text-xl font-normal text-neutral-400'>:</p>
             
           </div>
           <div className='flex flex-col  gap-2'>
@@ -107,11 +109,11 @@ const Profile = () => {
         <img src={MapImage} alt="mapImage" className='w-[100%] h-[60%] rounded-3xl object-cover' />
         <div className='flex w-full justify-end gap-4'>
           <div className='flex items-center'>
-            <p className='font-normal text-xs text-neutral-500'>Lat:</p>
+            <p className='font-normal text-xs text-neutral-400'>Lat:</p>
             <p className='text-sm font-semibold text-neutral-600'>{individual.address.geo.lat}</p>
           </div>
           <div className='flex items-center'>
-            <p className='text-xs font-normal text-neutral-500'>Lat:</p>
+            <p className='text-xs font-normal text-neutral-400'>Lat:</p>
             <p className='text-sm font-semibold   text-neutral-600'>{individual.address.geo.lng}</p>
           </div>
         </div>
@@ -120,7 +122,7 @@ const Profile = () => {
 
       </div>
       </div>
-
+     {login && <Logout/>}
     </div>
   )
 }

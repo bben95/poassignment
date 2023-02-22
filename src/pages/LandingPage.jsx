@@ -29,11 +29,11 @@ const LandingPage = () => {
           <p className="font-bold text-neutral-600 text-xl tracking-wide drop-shadow-sm">Select an account</p>
         </div>
         <div className="p-2 h-full  bg-white rounded-b-3xl ">
-        <div className="h-full bg-white   px-8 overflow-x-scroll scrollbar scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-xl scrollbar-w-[6px] ">
+        <div className="h-full bg-white   px-8 overflow-y-scroll scrollbar scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-xl scrollbar-w-[6px] ">
           {data?.map((item)=>(
             <Link key={item.id} to='/home'>
             <div  className="border-b-2 border-neutral-200 flex p-2 cursor-pointer" onClick={()=>{setIndividual(item)}}>
-              <img src={item.profilepicture} className="w-8 h-8 rounded-full contrast-75" alt="" />
+              <img src={item.profilepicture} className="w-8 h-8 rounded-full" alt={item.name} />
               <p className="text-lg font-light text-neutral-600 pl-4">{item.name}</p>
             </div>
             </Link>
