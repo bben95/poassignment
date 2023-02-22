@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import Chat from '../components/Chat';
+import ChatBox from '../components/ChatBox';
 import Logout from '../components/Logout';
 import { useDataContext } from '../context/DataContext'
 import MapImage from '../MapImage.png'
 
 const Profile = () => {
-    const {individual}=useDataContext();
+    const {individual,chatopen}=useDataContext();
     const [login,setLogin]=useState(false);
-    console.log(individual);
+    console.log(chatopen);
   return (
     <div className='h-screen w-[74%] my-6 mr-4 relative'>
       <div className=' w-full flex justify-between py-2 border-b-[1px] border-neutral-300'>
@@ -123,6 +125,8 @@ const Profile = () => {
       </div>
       </div>
      {login && <Logout/>}
+     <ChatBox/>
+     { chatopen && <Chat/>}
     </div>
   )
 }
