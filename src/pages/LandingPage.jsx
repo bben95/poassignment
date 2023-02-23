@@ -1,12 +1,16 @@
+// landing page component
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../context/DataContext";
 
 const LandingPage = () => {
-  const {data,setIndividual}= useDataContext();
+  // fetched data and individvidual data object
+  const { data, setIndividual } = useDataContext();
 
   return (
     <div className="w-full h-full">
+      {/* Landing page background svg image  */}
       <div className="absolute w-full h-full top-0">
         <svg id="svg" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -24,21 +28,34 @@ const LandingPage = () => {
             transform="rotate(-180 720 350)"></path>
         </svg>
       </div>
+      {/* User list section */}
       <div className="absolute w-2/5 h-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl shadow-slate-500">
         <div className="bg-neutral-100 h-1/4 rounded-t-3xl flex items-center justify-center outline-none">
-          <p className="font-bold text-neutral-600 text-xl tracking-wide drop-shadow-sm">Select an account</p>
+          <p className="font-bold text-neutral-600 text-xl tracking-wide drop-shadow-sm">
+            Select an account
+          </p>
         </div>
         <div className="p-2 h-full  bg-white rounded-b-3xl ">
-        <div className="h-full bg-white   px-8 overflow-y-scroll scrollbar scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-xl scrollbar-w-[6px] ">
-          {data?.map((item)=>(
-            <Link key={item.id} to='/home'>
-            <div  className="border-b-2 border-neutral-200 flex p-2 cursor-pointer" onClick={()=>{setIndividual(item)}}>
-              <img src={item.profilepicture} className="w-8 h-8 rounded-full" alt={item.name} />
-              <p className="text-lg font-light text-neutral-600 pl-4">{item.name}</p>
-            </div>
-            </Link>
-          ))}
-        </div>
+          <div className="h-full bg-white   px-8 overflow-y-scroll scrollbar scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-xl scrollbar-w-[6px] ">
+            {data?.map((item) => (
+              <Link key={item.id} to="/home">
+                <div
+                  className="border-b-2 border-neutral-200 flex p-2 cursor-pointer"
+                  onClick={() => {
+                    setIndividual(item);
+                  }}>
+                  <img
+                    src={item.profilepicture}
+                    className="w-8 h-8 rounded-full"
+                    alt={item.name}
+                  />
+                  <p className="text-lg font-light text-neutral-600 pl-4">
+                    {item.name}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
