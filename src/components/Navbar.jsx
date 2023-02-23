@@ -1,16 +1,13 @@
 // Navigation bar component
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MdNavigateNext } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   // to select the item of navigation bar
   const [active, setActive] = useState("profile");
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("profile");
-  }, []);
+  
   return (
     <div className="h-full w-[18%] bg-gradient-to-t from-[#6139c8] to-[#3d57c8] flex items-center justify-center m-8 rounded-3xl">
       <nav className="w-full pl-10 flex flex-col gap-5">
@@ -81,7 +78,7 @@ const Navbar = () => {
             )}
           </div>
         </Link>
-         {/* todo section */}
+         {/* todo */}
         <Link to="todo">
           <div className="flex justify-between relative pb-2">
             <p

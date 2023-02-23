@@ -38,7 +38,7 @@ const LandingPage = () => {
         <div className="p-2 h-full  bg-white rounded-b-3xl ">
           <div className="h-full bg-white   px-8 overflow-y-scroll scrollbar scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-xl scrollbar-w-[6px] ">
             {data?.map((item) => (
-              <Link key={item.id} to="/home">
+              <Link key={item.id} to="/home/profile">
                 <div
                   className="border-b-2 border-neutral-200 flex p-2 cursor-pointer"
                   onClick={() => {
